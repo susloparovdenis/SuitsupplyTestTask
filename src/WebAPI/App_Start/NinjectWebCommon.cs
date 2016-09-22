@@ -1,4 +1,4 @@
-using SuitsupplyTestTask.WebAPI.DAL;
+using SuitsupplyTestTask.DAL;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(SuitsupplyTestTask.WebAPI.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(SuitsupplyTestTask.WebAPI.App_Start.NinjectWebCommon), "Stop")]

@@ -2,12 +2,16 @@
 using System.Data.Entity;
 using System.Linq;
 
-using SuitsupplyTestTask.WebAPI.DAL.Model;
+using SuitsupplyTestTask.DAL.Model;
 
-namespace SuitsupplyTestTask.WebAPI.DAL
+namespace SuitsupplyTestTask.DAL
 {
     public class ProductsContext : DbContext
     {
+        static ProductsContext()
+        {
+            Database.SetInitializer(new ProductContextInitializer());
+        }
 
         public DbSet<Product> Products { get; set; }
 

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -7,8 +9,10 @@ using System.Web.Http.Description;
 
 using NLog;
 
-using SuitsupplyTestTask.WebAPI.DAL;
-using SuitsupplyTestTask.WebAPI.DAL.Model;
+using Omu.ValueInjecter.Injections;
+
+using SuitsupplyTestTask.DAL;
+using SuitsupplyTestTask.WebAPI.Controllers.DTO;
 
 namespace SuitsupplyTestTask.WebAPI.Controllers
 {
@@ -30,7 +34,7 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
         public IQueryable<Product> GetProducts()
         {
             logger.Info("Get products called");
-            return productRepository.GetAll();
+            return productRepository.GetAll().Select(Product.Map).AsQueryable(); //TODO IQUERABLE
         }
 
         /// <summary>
@@ -45,7 +49,7 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
             {
                 return NotFound();
             }
-            return Ok(product);
+            return Ok(Product.Map(product));
         }
 
         // PUT: api/Products/5
@@ -68,7 +72,7 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
                 return BadRequest();
             }
 
-            var isFound = await productRepository.Update(product);
+            var isFound = await productRepository.Update(Product.Map(product));
             if(!isFound)
                 return NotFound();
 
@@ -88,7 +92,7 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
             }
 
 
-            await productRepository.Insert(product);
+            await productRepository.Insert(Product.Map(product));
 
             return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);
         }
@@ -100,7 +104,7 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
         [ResponseType(typeof(Product))]
         public async Task<IHttpActionResult> DeleteProduct(int id)
         {
-            Product product = await productRepository.FindAsync(id);
+            var product = await productRepository.FindAsync(id);
             if (product == null)
             {
                 return NotFound();

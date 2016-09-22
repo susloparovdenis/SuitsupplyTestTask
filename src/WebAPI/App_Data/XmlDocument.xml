@@ -503,6 +503,36 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product">
+            <summary>
+            Some product in a shop.
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.Id">
+            <summary>
+            Product IDaasd
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.Name">
+            <summary>
+            Product Name
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.Photo">
+            <summary>
+            Base64 encoded Photo
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.Price">
+            <summary>
+            Price in euros
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.LastUpdated">
+            <summary>
+            Date of last update in UTC
+            </summary>
+        </member>
         <member name="M:SuitsupplyTestTask.WebAPI.Controllers.ProductsController.GetProducts">
             <summary>
             Returns a list of products.
@@ -514,7 +544,7 @@
             </summary>
             <param name="id">The ID of the product.</param>
         </member>
-        <member name="M:SuitsupplyTestTask.WebAPI.Controllers.ProductsController.PutProduct(System.Int32,SuitsupplyTestTask.WebAPI.DAL.Model.Product)">
+        <member name="M:SuitsupplyTestTask.WebAPI.Controllers.ProductsController.PutProduct(System.Int32,SuitsupplyTestTask.WebAPI.Controllers.DTO.Product)">
             <summary>
             Modifies an existing product.
             </summary>
@@ -522,7 +552,7 @@
             <param name="product"></param>
             <returns>some</returns>
         </member>
-        <member name="M:SuitsupplyTestTask.WebAPI.Controllers.ProductsController.PostProduct(SuitsupplyTestTask.WebAPI.DAL.Model.Product)">
+        <member name="M:SuitsupplyTestTask.WebAPI.Controllers.ProductsController.PostProduct(SuitsupplyTestTask.WebAPI.Controllers.DTO.Product)">
             <summary>
             Creates a new product.
             </summary>
@@ -530,45 +560,6 @@
         <member name="M:SuitsupplyTestTask.WebAPI.Controllers.ProductsController.DeleteProduct(System.Int32)">
             <summary>
             Deletes a product.
-            </summary>
-        </member>
-        <member name="M:SuitsupplyTestTask.WebAPI.DAL.IProductRepository.Update(SuitsupplyTestTask.WebAPI.DAL.Model.Product)">
-            <summary>
-            Updates exisitng product
-            </summary>
-            <param name="product"></param>
-            <returns>true if found</returns>
-        </member>
-        <member name="M:SuitsupplyTestTask.WebAPI.DAL.ProductRepository.Update(SuitsupplyTestTask.WebAPI.DAL.Model.Product)">
-            <summary>
-            
-            </summary>
-            <param name="product"></param>
-            <returns>true if found</returns>
-        </member>
-        <member name="P:SuitsupplyTestTask.WebAPI.DAL.Model.Product.Id">
-            <summary>
-            Product ID
-            </summary>
-        </member>
-        <member name="P:SuitsupplyTestTask.WebAPI.DAL.Model.Product.Name">
-            <summary>
-            Product Name
-            </summary>
-        </member>
-        <member name="P:SuitsupplyTestTask.WebAPI.DAL.Model.Product.Photo">
-            <summary>
-            Base64 encoded Photo
-            </summary>
-        </member>
-        <member name="P:SuitsupplyTestTask.WebAPI.DAL.Model.Product.Price">
-            <summary>
-            Price in euros
-            </summary>
-        </member>
-        <member name="P:SuitsupplyTestTask.WebAPI.DAL.Model.Product.LastUpdated">
-            <summary>
-            Date of last update in UTC
             </summary>
         </member>
     </members>

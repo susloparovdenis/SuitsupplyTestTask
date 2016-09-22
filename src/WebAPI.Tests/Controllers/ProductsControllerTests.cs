@@ -8,9 +8,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Moq;
 
+using SuitsupplyTestTask.DAL;
+using SuitsupplyTestTask.DAL.Model;
 using SuitsupplyTestTask.WebAPI.Controllers;
-using SuitsupplyTestTask.WebAPI.DAL;
-using SuitsupplyTestTask.WebAPI.DAL.Model;
+
+using Product = SuitsupplyTestTask.DAL.Model.Product;
 
 namespace SuitsupplyTestTask.WebAPI.Tests.Controllers
 {

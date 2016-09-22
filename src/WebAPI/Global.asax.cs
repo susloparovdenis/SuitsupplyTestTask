@@ -9,7 +9,6 @@ using Ninject;
 using Ninject.Web.Common;
 
 using SuitsupplyTestTask.WebAPI;
-using SuitsupplyTestTask.WebAPI.DAL;
 
 namespace SuitsupplyTestTask
 {
@@ -22,7 +21,6 @@ namespace SuitsupplyTestTask
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer(new ProductContextInitializer());
         }
     }
 }

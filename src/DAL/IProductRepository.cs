@@ -1,9 +1,9 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-using SuitsupplyTestTask.WebAPI.DAL.Model;
+using SuitsupplyTestTask.DAL.Model;
 
-namespace SuitsupplyTestTask.WebAPI.DAL
+namespace SuitsupplyTestTask.DAL
 {
     public interface IProductRepository
     {

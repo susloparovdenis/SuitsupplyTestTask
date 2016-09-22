@@ -119,6 +119,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{FDD6BD2A-71F3-4DFA-AB20-0BC69484C70B}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebAPI\WebAPI.csproj">
       <Project>{E92FFFF4-EA52-402F-BCC2-F3B3CE1D62C0}</Project>
       <Name>WebAPI</Name>
