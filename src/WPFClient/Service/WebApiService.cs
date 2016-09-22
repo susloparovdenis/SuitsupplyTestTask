@@ -24,7 +24,7 @@ namespace SuitsupplyTestTask.WPFClient.Service
 
         protected WebApiService()
         {
-            jsonSerializerSettings = new JsonSerializerSettings() { Culture = CultureInfo.InvariantCulture };
+            jsonSerializerSettings = new JsonSerializerSettings { Culture = CultureInfo.InvariantCulture };
             jsonSerializerSettings.Converters.Add(new IsoDateTimeConverter());
         }
 

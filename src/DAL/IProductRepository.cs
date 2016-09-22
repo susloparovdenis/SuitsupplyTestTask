@@ -12,7 +12,7 @@ namespace SuitsupplyTestTask.DAL
         Task<Product> FindAsync(int id);
 
         /// <summary>
-        /// Updates exisitng product
+        ///     Updates exisitng product
         /// </summary>
         /// <param name="product"></param>
         /// <returns>true if found</returns>

@@ -18,13 +18,8 @@ namespace SuitsupplyTestTask.WPFClient
             SetProduct(productDto);
         }
 
-        private void SetProduct(ProductDTO productDto)
-        {
-            this.productDto = productDto;
-            Refresh();
-        }
-
         public string ProductName => productDto.Name;
+
         public int Id => productDto.Id;
 
         public decimal Price => productDto.Price;
@@ -44,6 +39,12 @@ namespace SuitsupplyTestTask.WPFClient
             }
         }
 
+        private void SetProduct(ProductDTO productDto)
+        {
+            this.productDto = productDto;
+            Refresh();
+        }
+
         public void Edit()
         {
             var editProductViewModel = new EditProductViewModel(productDto.Clone());
@@ -51,7 +52,6 @@ namespace SuitsupplyTestTask.WPFClient
             if (result != true)
                 return;
             SetProduct(editProductViewModel.ProductDto);
-
         }
 
         public static ProductViewModel Create(ProductDTO productDto)

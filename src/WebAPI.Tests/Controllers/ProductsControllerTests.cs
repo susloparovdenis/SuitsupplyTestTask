@@ -15,7 +15,7 @@ namespace SuitsupplyTestTask.WebAPI.Tests.Controllers
     [TestClass]
     public class ProductsControllerTests
     {
-        readonly Mock<IProductRepository> productContextMock = new Mock<IProductRepository>();
+        private readonly Mock<IProductRepository> productContextMock = new Mock<IProductRepository>();
 
         [TestInitialize]
         public void TestInitialize()

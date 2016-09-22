@@ -19,11 +19,9 @@ namespace SuitsupplyTestTask.DAL
         {
             // Update LastUpdated field on changed or created Products
             var updatedOrCreated = ChangeTracker.Entries<Product>()
-                .Where(x => x.State == EntityState.Modified || x.State == EntityState.Added);
+                .Where(x => (x.State == EntityState.Modified) || (x.State == EntityState.Added));
             foreach (var entry in updatedOrCreated)
-            {
                 entry.Entity.LastUpdated = DateTime.UtcNow;
-            }
             return base.SaveChanges();
         }
     }

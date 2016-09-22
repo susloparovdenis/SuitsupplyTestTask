@@ -12,13 +12,16 @@ namespace SuitsupplyTestTask.DAL
     {
         private readonly ProductsContext context = new ProductsContext();
 
+        public void Dispose()
+        {
+            context.Dispose();
+        }
+
         public IQueryable<Product> GetAll() => context.Products;
 
         public Task<Product> FindAsync(int id) => context.Products.FindAsync(id);
 
-
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="product"></param>
         /// <returns>true if found</returns>
@@ -32,12 +35,10 @@ namespace SuitsupplyTestTask.DAL
             catch (DbUpdateConcurrencyException)
             {
                 if (!ProductExists(product.Id))
-                {
                     return false;
-                }
                 throw;
             }
-            return true; 
+            return true;
         }
 
         public async Task Insert(Product product)
@@ -46,17 +47,11 @@ namespace SuitsupplyTestTask.DAL
             await context.SaveChangesAsync();
         }
 
-
         public async Task Delete(int id) => await context.Products.FindAsync(id);
 
         private bool ProductExists(int id)
         {
             return context.Products.Count(e => e.Id == id) > 0;
-        }
-
-        public void Dispose()
-        {
-            context.Dispose();
         }
     }
 }

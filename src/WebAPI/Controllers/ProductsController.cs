@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -9,8 +7,6 @@ using System.Web.Http.Description;
 
 using NLog;
 
-using Omu.ValueInjecter.Injections;
-
 using SuitsupplyTestTask.DAL;
 using SuitsupplyTestTask.WebAPI.Controllers.DTO;
 
@@ -18,10 +14,9 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
 {
     public class ProductsController : ApiController
     {
-        private readonly IProductRepository productRepository;
-
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
+        private readonly IProductRepository productRepository;
 
         public ProductsController(IProductRepository productRepository)
         {
@@ -29,7 +24,7 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Returns a list of products.
+        ///     Returns a list of products.
         /// </summary>
         public IQueryable<Product> GetProducts()
         {
@@ -38,7 +33,7 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Finds a product by ID.
+        ///     Finds a product by ID.
         /// </summary>
         /// <param name="id">The ID of the product.</param>
         [ResponseType(typeof(Product))]
@@ -46,15 +41,13 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
         {
             var product = await productRepository.FindAsync(id);
             if (product == null)
-            {
                 return NotFound();
-            }
             return Ok(Product.Map(product));
         }
 
         // PUT: api/Products/5
         /// <summary>
-        /// Modifies an existing product.
+        ///     Modifies an existing product.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="product"></param>
@@ -63,17 +56,13 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
         public async Task<IHttpActionResult> PutProduct(int id, Product product)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
             if (id != product.Id)
-            {
                 return BadRequest();
-            }
 
             var isFound = await productRepository.Update(Product.Map(product));
-            if(!isFound)
+            if (!isFound)
                 return NotFound();
 
             return StatusCode(HttpStatusCode.NoContent);
@@ -81,16 +70,13 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
 
         // POST: api/Products
         /// <summary>
-        /// Creates a new product.
+        ///     Creates a new product.
         /// </summary>
         [ResponseType(typeof(Product))]
         public async Task<IHttpActionResult> PostProduct(Product product)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
-
 
             await productRepository.Insert(Product.Map(product));
 
@@ -99,16 +85,14 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
 
         // DELETE: api/Products/5
         /// <summary>
-        /// Deletes a product.
+        ///     Deletes a product.
         /// </summary>
         [ResponseType(typeof(Product))]
         public async Task<IHttpActionResult> DeleteProduct(int id)
         {
             var product = await productRepository.FindAsync(id);
             if (product == null)
-            {
                 return NotFound();
-            }
 
             await productRepository.Delete(product.Id);
 
@@ -124,7 +108,5 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
             }
             base.Dispose(disposing);
         }
-
-    
     }
 }

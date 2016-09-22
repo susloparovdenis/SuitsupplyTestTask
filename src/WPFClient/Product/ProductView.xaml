@@ -11,24 +11,26 @@
     <Border BorderBrush="Gainsboro" BorderThickness="1" Margin="2" Padding="2" MaxWidth="300" MinWidth="300">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="181"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="181" />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Image Source="{Binding BitmapImage}"  RenderOptions.BitmapScalingMode="NearestNeighbor"
-                   RenderOptions.EdgeMode="Aliased" MaxHeight="250"  />
-            <Grid Grid.Column="1" >
+            <Image Source="{Binding BitmapImage}" RenderOptions.BitmapScalingMode="NearestNeighbor"
+                   RenderOptions.EdgeMode="Aliased" MaxHeight="250" />
+            <Grid Grid.Column="1">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" FlowDirection="RightToLeft">
-                    <Button Name="Delete" Style="{StaticResource DeleteButtonStyle}" cal:Message.Attach="[Event Click] = [Action Delete($dataContext)]"/>
-                    <Button Name="Edit" Style="{StaticResource EditButtonStyle}"/>
+                    <Button Name="Delete" Style="{StaticResource DeleteButtonStyle}"
+                            cal:Message.Attach="[Event Click] = [Action Delete($dataContext)]" />
+                    <Button Name="Edit" Style="{StaticResource EditButtonStyle}" />
                 </StackPanel>
                 <StackPanel VerticalAlignment="Bottom">
-                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" x:Name="ProductName" FontSize="15" FontFamily="Arial" Margin="2" FontStretch="UltraCondensed"/>
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" x:Name="ProductName" FontSize="15"
+                               FontFamily="Arial" Margin="2" FontStretch="UltraCondensed" />
 
-                    <TextBlock TextAlignment="Center"  FontSize="12" Margin="2">
-                        <Run Text="€"/>
+                    <TextBlock TextAlignment="Center" FontSize="12" Margin="2">
+                        <Run Text="€" />
                         <Run Text="{Binding Price,Mode=OneWay}" />
                         <Run Text=" EUR" />
                     </TextBlock>

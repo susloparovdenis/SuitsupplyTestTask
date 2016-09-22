@@ -1,10 +1,12 @@
 ﻿using System.Windows;
 using System.Windows.Data;
 
+using Microsoft.Win32;
+
 namespace SuitsupplyTestTask.WPFClient.Helpers
 {
     /// <summary>
-    /// Interaction logic for ChooseFileControl.xaml
+    ///     Interaction logic for ChooseFileControl.xaml
     /// </summary>
     public partial class ChooseFileControl
     {
@@ -24,17 +26,17 @@ namespace SuitsupplyTestTask.WPFClient.Helpers
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            var dlg = new OpenFileDialog();
 
             dlg.DefaultExt = ".png";
             dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
 
-            bool? result = dlg.ShowDialog();
+            var result = dlg.ShowDialog();
 
             if (result == true)
             {
                 // Open document 
-                string filename = dlg.FileName;
+                var filename = dlg.FileName;
                 TextBox.Text = filename;
             }
         }

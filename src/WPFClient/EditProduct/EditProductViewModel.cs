@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 
 using Caliburn.Micro;
 
@@ -14,27 +9,8 @@ using SuitsupplyTestTask.WPFClient.Service;
 
 namespace SuitsupplyTestTask.WPFClient.EditProduct
 {
-    public class EditProductViewModel: Screen
+    public class EditProductViewModel : Screen
     {
-        public override string DisplayName => "Edit";
-
-        public bool CanSave
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(ProductName))
-                    return false;
-                decimal _;
-                if (!decimal.TryParse(price, NumberStyles.Currency,CultureInfo.InvariantCulture, out _))
-                    return false;
-                if (!string.IsNullOrEmpty(imagePath) && !File.Exists(imagePath))
-                    return false;
-                return true;
-            }
-        }
-
-        private readonly ProductDTO productDto;
-
         private string imagePath;
 
         private string price;
@@ -45,26 +21,48 @@ namespace SuitsupplyTestTask.WPFClient.EditProduct
 
         public EditProductViewModel(ProductDTO productDto)
         {
-            this.productDto = productDto;
+            ProductDto = productDto;
             Price = productDto.Price.ToString(CultureInfo.InvariantCulture);
         }
 
-        public string ProductName { get { return productDto.Name; }
+        public override string DisplayName => "Edit";
+
+        public bool CanSave
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(ProductName))
+                    return false;
+                decimal _;
+                if (!decimal.TryParse(price, NumberStyles.Currency, CultureInfo.InvariantCulture, out _))
+                    return false;
+                if (!string.IsNullOrEmpty(imagePath) && !File.Exists(imagePath))
+                    return false;
+                return true;
+            }
+        }
+
+        public string ProductName
+        {
+            get { return ProductDto.Name; }
             set
             {
-                productDto.Name = value;
+                ProductDto.Name = value;
                 NotifyOfPropertyChange();
                 NotifyOfPropertyChange(nameof(CanSave));
             }
         }
 
-        public string Price { get { return price; }
+        public string Price
+        {
+            get { return price; }
             set
             {
-                price= value;
+                price = value;
                 NotifyOfPropertyChange();
                 NotifyOfPropertyChange(nameof(CanSave));
-            } }
+            }
+        }
 
         public string ImagePath
         {
@@ -78,24 +76,22 @@ namespace SuitsupplyTestTask.WPFClient.EditProduct
             }
         }
 
-        public ProductDTO ProductDto => productDto;
+        public ProductDTO ProductDto { get; }
+
+        public bool CanCancel { get; set; } = true;
 
         public async void Save()
         {
             try
             {
                 Mouse.OverrideCursor = Cursors.Wait;
-                productDto.Price = decimal.Parse(price, NumberStyles.Currency, CultureInfo.InvariantCulture);
+                ProductDto.Price = decimal.Parse(price, NumberStyles.Currency, CultureInfo.InvariantCulture);
                 if (!string.IsNullOrEmpty(imagePath))
-                {
-                    //TODO: check not image
-                    productDto.Photo = File.ReadAllBytes(ImagePath);
-                }
-                if(productDto.Id == 0)
-                    await WebApiService.Current.PostProduct(productDto);
+                    ProductDto.Photo = File.ReadAllBytes(ImagePath);
+                if (ProductDto.Id == 0)
+                    await WebApiService.Current.PostProduct(ProductDto);
                 else
-                    await WebApiService.Current.PutProduct(productDto.Id, productDto);
-
+                    await WebApiService.Current.PutProduct(ProductDto.Id, ProductDto);
             }
             catch (Exception e)
             {
@@ -110,7 +106,6 @@ namespace SuitsupplyTestTask.WPFClient.EditProduct
             TryClose(true);
         }
 
-        public bool CanCancel { get; set; } = true;
         public void Cancel()
         {
             TryClose(false);

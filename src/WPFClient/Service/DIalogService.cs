@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 using Caliburn.Micro;
@@ -11,9 +7,9 @@ namespace SuitsupplyTestTask.WPFClient.Service
 {
     public class DialogService
     {
-        private readonly WindowManager windowManager = new WindowManager();
-
         private static DialogService current;
+
+        private readonly WindowManager windowManager = new WindowManager();
 
         protected DialogService()
         {
@@ -29,8 +25,8 @@ namespace SuitsupplyTestTask.WPFClient.Service
                 current = value;
             }
         }
-        public virtual bool? ShowDialog(IScreen dialogModel) => windowManager.ShowDialog(dialogModel);
 
+        public virtual bool? ShowDialog(IScreen dialogModel) => windowManager.ShowDialog(dialogModel);
 
         public virtual void ShowError(string message)
         {
