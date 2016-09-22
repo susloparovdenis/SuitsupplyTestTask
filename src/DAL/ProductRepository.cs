@@ -8,6 +8,11 @@ using SuitsupplyTestTask.DAL.Model;
 
 namespace SuitsupplyTestTask.DAL
 {
+    public class EntityNotFoundException : Exception
+    {
+        
+    }
+
     public class ProductRepository : IProductRepository, IDisposable
     {
         private readonly ProductsContext context = new ProductsContext();
@@ -25,7 +30,7 @@ namespace SuitsupplyTestTask.DAL
         /// </summary>
         /// <param name="product"></param>
         /// <returns>true if found</returns>
-        public async Task<bool> Update(Product product)
+        public async Task Update(Product product)
         {
             context.Entry(product).State = EntityState.Modified;
             try
@@ -35,10 +40,9 @@ namespace SuitsupplyTestTask.DAL
             catch (DbUpdateConcurrencyException)
             {
                 if (!ProductExists(product.Id))
-                    return false;
+                    throw new EntityNotFoundException(); 
                 throw;
             }
-            return true;
         }
 
         public async Task Insert(Product product)
@@ -47,7 +51,17 @@ namespace SuitsupplyTestTask.DAL
             await context.SaveChangesAsync();
         }
 
-        public async Task Delete(int id) => await context.Products.FindAsync(id);
+        public async Task Delete(int id)
+        {
+            var product = await FindAsync(id);
+            if (product == null)
+            {
+                throw new EntityNotFoundException();
+            }
+
+            context.Products.Remove(product);
+            await context.SaveChangesAsync();
+        }
 
         private bool ProductExists(int id)
         {

@@ -16,7 +16,7 @@ namespace SuitsupplyTestTask.DAL
         /// </summary>
         /// <param name="product"></param>
         /// <returns>true if found</returns>
-        Task<bool> Update(Product product);
+        Task Update(Product product);
 
         Task Insert(Product product);
 

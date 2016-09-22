@@ -8,6 +8,7 @@ using System.Web.Routing;
 using Ninject;
 using Ninject.Web.Common;
 
+using SuitsupplyTestTask.DAL;
 using SuitsupplyTestTask.WebAPI;
 
 namespace SuitsupplyTestTask
@@ -21,6 +22,10 @@ namespace SuitsupplyTestTask
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            using (var context = new ProductsContext())
+            {
+                context.Database.Initialize(false);
+            }
         }
     }
 }

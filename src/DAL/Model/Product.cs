@@ -16,7 +16,7 @@ namespace SuitsupplyTestTask.DAL.Model
         /// <summary>
         ///     Product Name
         /// </summary>
-        public string Name { get; set; }
+        public string Name1 { get; set; }
 
         /// <summary>
         ///     Base64 encoded Photo

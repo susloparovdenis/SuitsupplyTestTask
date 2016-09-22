@@ -505,32 +505,32 @@
         </member>
         <member name="T:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product">
             <summary>
-            Some product in a shop.
+                Some product in a shop.
             </summary>
         </member>
         <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.Id">
             <summary>
-            Product IDaasd
+                Product IDaasd
             </summary>
         </member>
         <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.Name">
             <summary>
-            Product Name
+                Product Name
             </summary>
         </member>
         <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.Photo">
             <summary>
-            Base64 encoded Photo
+                Base64 encoded Photo
             </summary>
         </member>
         <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.Price">
             <summary>
-            Price in euros
+                Price in euros
             </summary>
         </member>
         <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.LastUpdated">
             <summary>
-            Date of last update in UTC
+                Date of last update in UTC
             </summary>
         </member>
         <member name="M:SuitsupplyTestTask.WebAPI.Controllers.ProductsController.GetProducts">
