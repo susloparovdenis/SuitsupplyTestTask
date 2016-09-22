@@ -1,6 +1,4 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http.Results;
 
@@ -11,8 +9,6 @@ using Moq;
 using SuitsupplyTestTask.DAL;
 using SuitsupplyTestTask.DAL.Model;
 using SuitsupplyTestTask.WebAPI.Controllers;
-
-using Product = SuitsupplyTestTask.DAL.Model.Product;
 
 namespace SuitsupplyTestTask.WebAPI.Tests.Controllers
 {
@@ -27,14 +23,11 @@ namespace SuitsupplyTestTask.WebAPI.Tests.Controllers
             var entities = ProductContextInitializer.entities;
             productContextMock.Setup(m => m.GetAll()).Returns(entities.AsQueryable());
             productContextMock.Setup(m => m.FindAsync(It.IsAny<int>())).Returns<int>(i => Task.FromResult(entities.SingleOrDefault(e => e.Id == i)));
-
         }
 
         [TestMethod]
         public async Task GetProduct_Returns_Not_found()
         {
-          
-
             var productsController = new ProductsController(productContextMock.Object);
             var result = await productsController.GetProduct(4);
             Assert.IsInstanceOfType(result, typeof(NotFoundResult));

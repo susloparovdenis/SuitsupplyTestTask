@@ -15,7 +15,7 @@ namespace SuitsupplyTestTask.WPFClient.Service
 
         private static DialogService current;
 
-        private DialogService()
+        protected DialogService()
         {
         }
 
@@ -29,10 +29,10 @@ namespace SuitsupplyTestTask.WPFClient.Service
                 current = value;
             }
         }
-        public bool? ShowDialog(IScreen dialogModel) => windowManager.ShowDialog(dialogModel);
+        public virtual bool? ShowDialog(IScreen dialogModel) => windowManager.ShowDialog(dialogModel);
 
 
-        public void ShowError(string message)
+        public virtual void ShowError(string message)
         {
             MessageBox.Show(message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }

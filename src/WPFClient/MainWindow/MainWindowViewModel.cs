@@ -39,7 +39,7 @@ namespace SuitsupplyTestTask.WPFClient.MainWindow
             //            ProductViewModels.AddRange(products.Select(ProductViewModel.Create));
         }
 
-        public async void Add()
+        public void Add()
         {
             var editProductViewModel = new EditProductViewModel(new ProductDTO());
             var result = DialogService.Current.ShowDialog(editProductViewModel);

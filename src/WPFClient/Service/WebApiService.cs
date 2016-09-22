@@ -22,7 +22,7 @@ namespace SuitsupplyTestTask.WPFClient.Service
 
         private readonly JsonSerializerSettings jsonSerializerSettings;
 
-        private WebApiService()
+        protected WebApiService()
         {
             jsonSerializerSettings = new JsonSerializerSettings() { Culture = CultureInfo.InvariantCulture };
             jsonSerializerSettings.Converters.Add(new IsoDateTimeConverter());
@@ -79,15 +79,15 @@ namespace SuitsupplyTestTask.WPFClient.Service
             }
         }
 
-        public async Task<ProductDTO[]> GetProducts() => await RestCall<ProductDTO[]>("api/products", MethodType.GET);
+        public virtual async Task<ProductDTO[]> GetProducts() => await RestCall<ProductDTO[]>("api/products", MethodType.GET);
 
-        public async Task<ProductDTO> GetProduct(int id) => await RestCall<ProductDTO>($"api/products/{id}", MethodType.GET);
+        public virtual async Task<ProductDTO> GetProduct(int id) => await RestCall<ProductDTO>($"api/products/{id}", MethodType.GET);
 
-        public async Task<ProductDTO> DeleteProduct(int id) => await RestCall<ProductDTO>($"api/products/{id}", MethodType.DELETE);
+        public virtual async Task<ProductDTO> DeleteProduct(int id) => await RestCall<ProductDTO>($"api/products/{id}", MethodType.DELETE);
 
-        public async Task<ProductDTO> PostProduct(ProductDTO product) => await RestCall<ProductDTO>("api/products/", MethodType.POST, product);
+        public virtual async Task<ProductDTO> PostProduct(ProductDTO product) => await RestCall<ProductDTO>("api/products/", MethodType.POST, product);
 
-        public async Task<ProductDTO> PutProduct(int id, ProductDTO product) => await RestCall<ProductDTO>($"api/products/{id}", MethodType.PUT, product);
+        public virtual async Task<ProductDTO> PutProduct(int id, ProductDTO product) => await RestCall<ProductDTO>($"api/products/{id}", MethodType.PUT, product);
 
         private enum MethodType
         {
