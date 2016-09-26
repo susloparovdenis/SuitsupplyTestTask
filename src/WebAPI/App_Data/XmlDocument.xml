@@ -40,7 +40,7 @@
         </member>
         <member name="P:SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product.Id">
             <summary>
-                Product IDaasd
+                Product ID
             </summary>
         </member>
         <member name="P:SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product.Name">

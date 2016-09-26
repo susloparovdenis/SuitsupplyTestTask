@@ -12,7 +12,7 @@ namespace SuitsupplyTestTask.WebAPI.Api.Version2.DTO
     public class Product : IHaveId
     {
         /// <summary>
-        ///     Product IDaasd
+        ///     Product ID
         /// </summary>
         public int Id { get; set; }
 
