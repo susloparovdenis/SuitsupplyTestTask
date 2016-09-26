@@ -8,6 +8,7 @@ using Moq;
 
 using SuitsupplyTestTask.DAL;
 using SuitsupplyTestTask.DAL.Model;
+using SuitsupplyTestTask.WebAPI.Api.Version1;
 using SuitsupplyTestTask.WebAPI.Controllers;
 
 namespace SuitsupplyTestTask.WebAPI.Tests.Controllers

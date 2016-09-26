@@ -1,3 +1,9 @@
+using System.Web.Http;
+using System.Web.Http.Description;
+using System.Web.Http.Dispatcher;
+
+using SDammann.WebApi.Versioning;
+
 using SuitsupplyTestTask.DAL;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(SuitsupplyTestTask.WebAPI.App_Start.NinjectWebCommon), "Start")]
@@ -64,6 +70,8 @@ namespace SuitsupplyTestTask.WebAPI.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IProductRepository>().To<ProductRepository>();
-        }        
+            kernel.Bind<IHttpControllerSelector>().ToConstant(new RouteVersionedControllerSelector(GlobalConfiguration.Configuration)).InSingletonScope();
+            kernel.Bind<IApiExplorer>().ToConstant(new VersionedApiExplorer(GlobalConfiguration.Configuration)).InSingletonScope();
+        }
     }
 }

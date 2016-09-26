@@ -10,9 +10,9 @@ using NLog;
 using Omu.ValueInjecter;
 
 using SuitsupplyTestTask.DAL;
-using SuitsupplyTestTask.WebAPI.Controllers.DTO;
+using SuitsupplyTestTask.WebAPI.Api.Version2.DTO;
 
-namespace SuitsupplyTestTask.WebAPI.Controllers
+namespace SuitsupplyTestTask.WebAPI.Api.Version2
 {
     public class ProductsController : ApiController
     {

@@ -2,15 +2,18 @@
 
 using Omu.ValueInjecter;
 
-namespace SuitsupplyTestTask.WebAPI.Controllers.DTO
+using SuitsupplyTestTask.WebAPI.Areas.HelpPage.ModelDescriptions;
+
+namespace SuitsupplyTestTask.WebAPI.Api.Version1.DTO
 {
     /// <summary>
     ///     Some product in a shop.
     /// </summary>
+    [ModelName("v1 Product")]
     public class Product
     {
         /// <summary>
-        ///     Product IDaasd
+        ///     Product ID
         /// </summary>
         public int Id { get; set; }
 

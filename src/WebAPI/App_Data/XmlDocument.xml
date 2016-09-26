@@ -4,6 +4,124 @@
         <name>WebAPI</name>
     </assembly>
     <members>
+        <member name="T:SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product">
+            <summary>
+                Some product in a shop.
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product.Id">
+            <summary>
+                Product IDaasd
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product.Name">
+            <summary>
+                Product Name
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product.Photo">
+            <summary>
+                Base64 encoded Photo
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product.Price">
+            <summary>
+                Price in euros
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product.LastUpdated">
+            <summary>
+                Date of last update in UTC
+            </summary>
+        </member>
+        <member name="M:SuitsupplyTestTask.WebAPI.Api.Version2.ProductsController.GetProducts">
+            <summary>
+            Returns a list of products.
+            </summary>
+        </member>
+        <member name="M:SuitsupplyTestTask.WebAPI.Api.Version2.ProductsController.GetProduct(System.Int32)">
+            <summary>
+            Finds a product by ID.
+            </summary>
+            <param name="id">The ID of the product.</param>
+        </member>
+        <member name="M:SuitsupplyTestTask.WebAPI.Api.Version2.ProductsController.PutProduct(System.Int32,SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product)">
+            <summary>
+            Modifies an existing product.
+            </summary>
+            <param name="id"></param>
+            <param name="product"></param>
+            <returns>some</returns>
+        </member>
+        <member name="M:SuitsupplyTestTask.WebAPI.Api.Version2.ProductsController.PostProduct(SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product)">
+            <summary>
+            Creates a new product.
+            </summary>
+        </member>
+        <member name="M:SuitsupplyTestTask.WebAPI.Api.Version2.ProductsController.DeleteProduct(System.Int32)">
+            <summary>
+            Deletes a product.
+            </summary>
+        </member>
+        <member name="M:SuitsupplyTestTask.WebAPI.Api.Version1.ProductsController.GetProducts">
+            <summary>
+            Returns a list of products.
+            </summary>
+        </member>
+        <member name="M:SuitsupplyTestTask.WebAPI.Api.Version1.ProductsController.GetProduct(System.Int32)">
+            <summary>
+            Finds a product by ID.
+            </summary>
+            <param name="id">The ID of the product.</param>
+        </member>
+        <member name="M:SuitsupplyTestTask.WebAPI.Api.Version1.ProductsController.PutProduct(System.Int32,SuitsupplyTestTask.WebAPI.Api.Version1.DTO.Product)">
+            <summary>
+            Modifies an existing product.
+            </summary>
+            <param name="id"></param>
+            <param name="product"></param>
+            <returns>some</returns>
+        </member>
+        <member name="M:SuitsupplyTestTask.WebAPI.Api.Version1.ProductsController.PostProduct(SuitsupplyTestTask.WebAPI.Api.Version1.DTO.Product)">
+            <summary>
+            Creates a new product.
+            </summary>
+        </member>
+        <member name="M:SuitsupplyTestTask.WebAPI.Api.Version1.ProductsController.DeleteProduct(System.Int32)">
+            <summary>
+            Deletes a product.
+            </summary>
+        </member>
+        <member name="T:SuitsupplyTestTask.WebAPI.Api.Version1.DTO.Product">
+            <summary>
+                Some product in a shop.
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Api.Version1.DTO.Product.Id">
+            <summary>
+                Product IDaasd
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Api.Version1.DTO.Product.Name">
+            <summary>
+                Product Name
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Api.Version1.DTO.Product.Photo">
+            <summary>
+                Base64 encoded Photo
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Api.Version1.DTO.Product.Price">
+            <summary>
+                Price in euros
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Api.Version1.DTO.Product.LastUpdated">
+            <summary>
+                Date of last update in UTC
+            </summary>
+        </member>
         <member name="M:SuitsupplyTestTask.WebAPI.App_Start.NinjectWebCommon.Start">
             <summary>
             Starts the application
@@ -502,65 +620,6 @@
             Initializes a new instance of the <see cref="T:SuitsupplyTestTask.WebAPI.Areas.HelpPage.XmlDocumentationProvider"/> class.
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
-        </member>
-        <member name="T:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product">
-            <summary>
-                Some product in a shop.
-            </summary>
-        </member>
-        <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.Id">
-            <summary>
-                Product IDaasd
-            </summary>
-        </member>
-        <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.Name">
-            <summary>
-                Product Name
-            </summary>
-        </member>
-        <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.Photo">
-            <summary>
-                Base64 encoded Photo
-            </summary>
-        </member>
-        <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.Price">
-            <summary>
-                Price in euros
-            </summary>
-        </member>
-        <member name="P:SuitsupplyTestTask.WebAPI.Controllers.DTO.Product.LastUpdated">
-            <summary>
-                Date of last update in UTC
-            </summary>
-        </member>
-        <member name="M:SuitsupplyTestTask.WebAPI.Controllers.ProductsController.GetProducts">
-            <summary>
-            Returns a list of products.
-            </summary>
-        </member>
-        <member name="M:SuitsupplyTestTask.WebAPI.Controllers.ProductsController.GetProduct(System.Int32)">
-            <summary>
-            Finds a product by ID.
-            </summary>
-            <param name="id">The ID of the product.</param>
-        </member>
-        <member name="M:SuitsupplyTestTask.WebAPI.Controllers.ProductsController.PutProduct(System.Int32,SuitsupplyTestTask.WebAPI.Controllers.DTO.Product)">
-            <summary>
-            Modifies an existing product.
-            </summary>
-            <param name="id"></param>
-            <param name="product"></param>
-            <returns>some</returns>
-        </member>
-        <member name="M:SuitsupplyTestTask.WebAPI.Controllers.ProductsController.PostProduct(SuitsupplyTestTask.WebAPI.Controllers.DTO.Product)">
-            <summary>
-            Creates a new product.
-            </summary>
-        </member>
-        <member name="M:SuitsupplyTestTask.WebAPI.Controllers.ProductsController.DeleteProduct(System.Int32)">
-            <summary>
-            Deletes a product.
-            </summary>
         </member>
     </members>
 </doc>
