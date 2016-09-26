@@ -36,7 +36,7 @@ namespace SuitsupplyTestTask.WebAPI.Api.Common
         public IQueryable<TDto> GetProducts()
         {
             logger.Info("Get products called");
-            return productRepository.GetAll().Select(Map).AsQueryable(); //TODO IQUERABLE
+            return productRepository.GetAll().Select(Map).AsQueryable(); //TODO https://github.com/AutoMapper/AutoMapper/wiki/Expression-Translation-(UseAsDataSource)
         }
 
         /// <summary>

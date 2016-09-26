@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace SuitsupplyTestTask.WebAPI
@@ -12,8 +13,9 @@ namespace SuitsupplyTestTask.WebAPI
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                defaults: new { controller = "Help", action = "Index", id = UrlParameter.Optional, area = "HelpPage" },
+                namespaces: new[] { "SuitsupplyTestTask.WebAPI.Areas.HelpPage.Controllers" }
+            ).DataTokens.Add("area", "HelpPage"); ;
         }
     }
 }

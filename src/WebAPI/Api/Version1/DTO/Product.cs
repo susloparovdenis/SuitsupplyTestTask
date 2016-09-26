@@ -12,6 +12,11 @@ namespace SuitsupplyTestTask.WebAPI.Api.Version1.DTO
     public class Product : IHaveId
     {
         /// <summary>
+        ///     Product ID
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         ///     Product Name
         /// </summary>
         public string Name { get; set; }
@@ -30,10 +35,5 @@ namespace SuitsupplyTestTask.WebAPI.Api.Version1.DTO
         ///     Date of last update in UTC
         /// </summary>
         public DateTime LastUpdated { get; set; } = DateTime.UtcNow;
-
-        /// <summary>
-        ///     Product ID
-        /// </summary>
-        public int Id { get; set; }
     }
 }

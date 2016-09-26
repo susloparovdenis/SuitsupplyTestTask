@@ -37,7 +37,7 @@
                         <Run Text="{Binding Price,Mode=OneWay}" />
                         <Run Text=" EUR" />
                     </TextBlock>
-                    <TextBlock
+                    <TextBlock FontSize="9"
                         Text="{Binding LastUpdated, StringFormat='{}{0:MM/dd/yyyy h:mm tt}', Converter={StaticResource UtcToLocalDateTimeConverter}}"
                         TextAlignment="Center" Margin="2" />
                 </StackPanel>

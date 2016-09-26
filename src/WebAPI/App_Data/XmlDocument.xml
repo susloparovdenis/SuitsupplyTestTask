@@ -6,18 +6,18 @@
     <members>
         <member name="M:SuitsupplyTestTask.WebAPI.Api.Common.ProductsControllerBase`1.GetProducts">
             <summary>
-            Returns a list of products.
+                Returns a list of products.
             </summary>
         </member>
         <member name="M:SuitsupplyTestTask.WebAPI.Api.Common.ProductsControllerBase`1.GetProduct(System.Int32)">
             <summary>
-            Finds a product by ID.
+                Finds a product by ID.
             </summary>
             <param name="id">The ID of the product.</param>
         </member>
         <member name="M:SuitsupplyTestTask.WebAPI.Api.Common.ProductsControllerBase`1.PutProduct(System.Int32,`0)">
             <summary>
-            Modifies an existing product.
+                Modifies an existing product.
             </summary>
             <param name="id"></param>
             <param name="product"></param>
@@ -25,12 +25,12 @@
         </member>
         <member name="M:SuitsupplyTestTask.WebAPI.Api.Common.ProductsControllerBase`1.PostProduct(`0)">
             <summary>
-            Creates a new product.
+                Creates a new product.
             </summary>
         </member>
         <member name="M:SuitsupplyTestTask.WebAPI.Api.Common.ProductsControllerBase`1.DeleteProduct(System.Int32)">
             <summary>
-            Deletes a product.
+                Deletes a product.
             </summary>
         </member>
         <member name="T:SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product">
@@ -61,6 +61,11 @@
         <member name="P:SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product.LastUpdated">
             <summary>
                 Date of last update in UTC
+            </summary>
+        </member>
+        <member name="P:SuitsupplyTestTask.WebAPI.Api.Version2.DTO.Product.Material">
+            <summary>
+                Material
             </summary>
         </member>
         <member name="T:SuitsupplyTestTask.WebAPI.Api.Version1.DTO.Product">
