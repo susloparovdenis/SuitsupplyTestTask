@@ -1,7 +1,5 @@
 ﻿using System;
 
-using Omu.ValueInjecter;
-
 using SuitsupplyTestTask.WebAPI.Api.Common;
 using SuitsupplyTestTask.WebAPI.Areas.HelpPage.ModelDescriptions;
 
@@ -11,7 +9,7 @@ namespace SuitsupplyTestTask.WebAPI.Api.Version2.DTO
     ///     Some product in a shop.
     /// </summary>
     [ModelName("v2 Product")]
-    public class Product: IHaveId
+    public class Product : IHaveId
     {
         /// <summary>
         ///     Product IDaasd
@@ -37,7 +35,7 @@ namespace SuitsupplyTestTask.WebAPI.Api.Version2.DTO
         ///     Date of last update in UTC
         /// </summary>
         public DateTime LastUpdated { get; set; } = DateTime.UtcNow;
-        
+
         /// <summary>
         ///     Material
         /// </summary>

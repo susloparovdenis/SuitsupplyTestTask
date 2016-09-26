@@ -42,7 +42,6 @@ namespace SuitsupplyTestTask.DAL
                 .Where(x => (x.State == EntityState.Modified) || (x.State == EntityState.Added));
             foreach (var entry in updatedOrCreated)
                 entry.Entity.LastUpdated = DateTime.UtcNow;
-            
         }
     }
 }

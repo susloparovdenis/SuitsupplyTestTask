@@ -7,9 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
 using SuitsupplyTestTask.DAL;
-using SuitsupplyTestTask.DAL.Model;
-using SuitsupplyTestTask.WebAPI.Api.Version1;
-using SuitsupplyTestTask.WebAPI.Controllers;
+using SuitsupplyTestTask.WebAPI.Api.Version2.DTO;
 
 using ProductsController = SuitsupplyTestTask.WebAPI.Api.Version2.ProductsController;
 

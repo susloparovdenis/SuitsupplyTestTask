@@ -10,7 +10,6 @@ namespace SuitsupplyTestTask.DAL
 {
     public class EntityNotFoundException : Exception
     {
-        
     }
 
     public class ProductRepository : IProductRepository, IDisposable
@@ -40,7 +39,7 @@ namespace SuitsupplyTestTask.DAL
             catch (DbUpdateConcurrencyException)
             {
                 if (!ProductExists(product.Id))
-                    throw new EntityNotFoundException(); 
+                    throw new EntityNotFoundException();
                 throw;
             }
         }
@@ -55,9 +54,7 @@ namespace SuitsupplyTestTask.DAL
         {
             var product = await FindAsync(id);
             if (product == null)
-            {
                 throw new EntityNotFoundException();
-            }
 
             context.Products.Remove(product);
             await context.SaveChangesAsync();

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 
@@ -12,11 +10,12 @@ using NLog;
 using Omu.ValueInjecter;
 
 using SuitsupplyTestTask.DAL;
-using SuitsupplyTestTask.WebAPI.Api.Version1.DTO;
+using SuitsupplyTestTask.DAL.Model;
 
 namespace SuitsupplyTestTask.WebAPI.Api.Common
 {
-    public abstract class ProductsControllerBase<TDto> : ApiController where TDto:IHaveId
+    public abstract class ProductsControllerBase<TDto> : ApiController
+        where TDto : IHaveId
     {
         private readonly Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -27,12 +26,12 @@ namespace SuitsupplyTestTask.WebAPI.Api.Common
             this.productRepository = productRepository;
         }
 
-        public static TDto Map(DAL.Model.Product product) => Mapper.Map<TDto>(product);
+        public static TDto Map(Product product) => Mapper.Map<TDto>(product);
 
-        public static DAL.Model.Product Map(TDto product) => Mapper.Map<DAL.Model.Product>(product);
+        public static Product Map(TDto product) => Mapper.Map<Product>(product);
 
         /// <summary>
-        /// Returns a list of products.
+        ///     Returns a list of products.
         /// </summary>
         public IQueryable<TDto> GetProducts()
         {
@@ -41,23 +40,21 @@ namespace SuitsupplyTestTask.WebAPI.Api.Common
         }
 
         /// <summary>
-        /// Finds a product by ID.
+        ///     Finds a product by ID.
         /// </summary>
         /// <param name="id">The ID of the product.</param>
-        [ResponseType(typeof(Product))]
+        [ResponseType(typeof(Version1.DTO.Product))]
         public async Task<IHttpActionResult> GetProduct(int id)
         {
             var product = await productRepository.FindAsync(id);
             if (product == null)
-            {
                 return NotFound();
-            }
             return Ok(Map(product));
         }
 
         // PUT: api/Products/5
         /// <summary>
-        /// Modifies an existing product.
+        ///     Modifies an existing product.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="product"></param>
@@ -66,39 +63,31 @@ namespace SuitsupplyTestTask.WebAPI.Api.Common
         public async Task<IHttpActionResult> PutProduct(int id, TDto product)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
             if (id != product.Id)
-            {
                 return BadRequest();
-            }
             try
             {
                 var entity = Map(product);
                 await productRepository.Update(entity);
                 return Ok(Map(entity));
-
             }
             catch (EntityNotFoundException)
             {
                 return NotFound();
             }
-
         }
 
         // POST: api/Products
         /// <summary>
-        /// Creates a new product.
+        ///     Creates a new product.
         /// </summary>
-        [ResponseType(typeof(Product))]
+        [ResponseType(typeof(Version1.DTO.Product))]
         public async Task<IHttpActionResult> PostProduct(TDto product)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
             await productRepository.Insert(Map(product));
 
@@ -107,9 +96,9 @@ namespace SuitsupplyTestTask.WebAPI.Api.Common
 
         // DELETE: api/Products/5
         /// <summary>
-        /// Deletes a product.
+        ///     Deletes a product.
         /// </summary>
-        [ResponseType(typeof(Product))]
+        [ResponseType(typeof(Version1.DTO.Product))]
         public async Task<IHttpActionResult> DeleteProduct(int id)
         {
             try

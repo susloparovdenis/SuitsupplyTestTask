@@ -16,7 +16,7 @@ namespace SuitsupplyTestTask.WPFClient
         }
     }
 
-    class UtcToLocalDateTimeConverter : IValueConverter
+    internal class UtcToLocalDateTimeConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

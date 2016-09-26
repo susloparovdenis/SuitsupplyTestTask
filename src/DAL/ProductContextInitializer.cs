@@ -21,7 +21,7 @@ namespace SuitsupplyTestTask.DAL
             using (var client = new WebClient())
             {
                 var downloadDataTaskAsync = await client.DownloadDataTaskAsync(uri);
-                return downloadDataTaskAsync; 
+                return downloadDataTaskAsync;
             }
         }
 
