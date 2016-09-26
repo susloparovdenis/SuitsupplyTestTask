@@ -171,6 +171,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Common\IHaveId.cs" />
+    <Compile Include="Api\Common\ProductsControllerBase.cs" />
     <Compile Include="Api\Version2\DTO\Product.cs" />
     <Compile Include="Api\Version2\ProductsController.cs" />
     <Compile Include="Api\Version1\ProductsController.cs" />
@@ -292,9 +294,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
