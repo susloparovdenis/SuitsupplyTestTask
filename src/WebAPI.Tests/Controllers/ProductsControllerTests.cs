@@ -11,6 +11,8 @@ using SuitsupplyTestTask.DAL.Model;
 using SuitsupplyTestTask.WebAPI.Api.Version1;
 using SuitsupplyTestTask.WebAPI.Controllers;
 
+using ProductsController = SuitsupplyTestTask.WebAPI.Api.Version2.ProductsController;
+
 namespace SuitsupplyTestTask.WebAPI.Tests.Controllers
 {
     [TestClass]

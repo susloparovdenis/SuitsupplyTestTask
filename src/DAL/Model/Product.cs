@@ -32,5 +32,10 @@ namespace SuitsupplyTestTask.DAL.Model
         ///     Date of last update in UTC
         /// </summary>
         public DateTime LastUpdated { get; set; }
+
+        /// <summary>
+        ///     Material
+        /// </summary>
+        public string Material { get; set; }
     }
 }

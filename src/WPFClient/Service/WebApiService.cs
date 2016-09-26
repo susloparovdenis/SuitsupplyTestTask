@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -14,7 +15,7 @@ namespace SuitsupplyTestTask.WPFClient.Service
 {
     public class WebApiService
     {
-        private const string baseURL = "http://suitsupplytest.azurewebsites.net/";
+        private const string baseURL = "http://suitsupplytest.azurewebsites.net/api/v1/";
 
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -79,15 +80,15 @@ namespace SuitsupplyTestTask.WPFClient.Service
             }
         }
 
-        public virtual async Task<ProductDTO[]> GetProducts() => await RestCall<ProductDTO[]>("api/products", MethodType.GET);
+        public virtual async Task<ProductDTO[]> GetProducts() => await RestCall<ProductDTO[]>("products", MethodType.GET);
 
-        public virtual async Task<ProductDTO> GetProduct(int id) => await RestCall<ProductDTO>($"api/products/{id}", MethodType.GET);
+        public virtual async Task<ProductDTO> GetProduct(int id) => await RestCall<ProductDTO>($"products/{id}", MethodType.GET);
 
-        public virtual async Task<ProductDTO> DeleteProduct(int id) => await RestCall<ProductDTO>($"api/products/{id}", MethodType.DELETE);
+        public virtual async Task<ProductDTO> DeleteProduct(int id) => await RestCall<ProductDTO>($"products/{id}", MethodType.DELETE);
 
-        public virtual async Task<ProductDTO> PostProduct(ProductDTO product) => await RestCall<ProductDTO>("api/products/", MethodType.POST, product);
+        public virtual async Task<ProductDTO> PostProduct(ProductDTO product) => await RestCall<ProductDTO>("products/", MethodType.POST, product);
 
-        public virtual async Task<ProductDTO> PutProduct(int id, ProductDTO product) => await RestCall<ProductDTO>($"api/products/{id}", MethodType.PUT, product);
+        public virtual async Task<ProductDTO> PutProduct(int id, ProductDTO product) => await RestCall<ProductDTO>($"products/{id}", MethodType.PUT, product);
 
         private enum MethodType
         {
