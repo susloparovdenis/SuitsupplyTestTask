@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:helpers="clr-namespace:SuitsupplyTestTask.WPFClient.Helpers"
+             xmlns:wpfClient="clr-namespace:SuitsupplyTestTask.WPFClient"
              mc:Ignorable="d">
     <DockPanel>
         <DockPanel Dock="Bottom">
@@ -20,7 +21,7 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock Text="Name:" />
+            <TextBlock Text="Name:" Margin="2" />
             <TextBox Name="ProductName" Grid.Column="1" Margin="2" />
             <TextBlock Text="Price:" Grid.Row="1" Margin="2" />
             <TextBox Name="Price" Grid.Row="1" Grid.Column="1" Margin="2" />

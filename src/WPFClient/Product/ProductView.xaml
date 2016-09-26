@@ -8,6 +8,9 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300"
              d:DataContext="{d:DesignInstance wpfClient:ProductViewModel}">
+    <UserControl.Resources>
+        <wpfClient:UtcToLocalDateTimeConverter x:Key="UtcToLocalDateTimeConverter" />
+    </UserControl.Resources>
     <Border BorderBrush="Gainsboro" BorderThickness="1" Margin="2" Padding="2" MaxWidth="300" MinWidth="300">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -34,7 +37,7 @@
                         <Run Text="{Binding Price,Mode=OneWay}" />
                         <Run Text=" EUR" />
                     </TextBlock>
-                    <TextBlock Name="LastUpdated" TextAlignment="Center" Margin="2" />
+                    <TextBlock Text="{Binding LastUpdated, StringFormat='{}{0:MM/dd/yyyy h:mm tt}', Converter={StaticResource UtcToLocalDateTimeConverter}}" TextAlignment="Center" Margin="2" />
                 </StackPanel>
             </Grid>
         </Grid>

@@ -30,6 +30,8 @@ namespace SuitsupplyTestTask.WPFClient
         {
             get
             {
+                if (productDto.Photo == null)
+                    return null;
                 var byteStream = new MemoryStream(productDto.Photo);
                 var bi = new BitmapImage();
                 bi.BeginInit();

@@ -32,7 +32,7 @@ namespace SuitsupplyTestTask.WebAPI.Controllers.DTO
         /// <summary>
         ///     Date of last update in UTC
         /// </summary>
-        public DateTime LastUpdated { get; set; }
+        public DateTime LastUpdated { get; set; } = DateTime.UtcNow;
 
         public static Product Map(DAL.Model.Product product) => Mapper.Map<Product>(product);
 

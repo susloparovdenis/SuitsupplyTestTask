@@ -11,9 +11,9 @@ namespace SuitsupplyTestTask.DAL
     {
         public static readonly List<Product> entities = new List<Product>
                                                         {
-                                                            new Product { Id = 1, Name1 = "havana grey check", Price = 299 },
-                                                            new Product { Id = 2, Name1 = "lazio blue herringbonert", Price = 379 },
-                                                            new Product { Id = 3, Name1 = "lazio blue stripe", Price = 429 }
+                                                            new Product { Id = 1, Name = "havana grey check", Price = 299 },
+                                                            new Product { Id = 2, Name = "lazio blue herringbonert", Price = 379 },
+                                                            new Product { Id = 3, Name = "lazio blue stripe", Price = 429 }
                                                         };
 
         private async Task<byte[]> GetImage(string uri)

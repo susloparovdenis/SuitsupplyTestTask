@@ -23,9 +23,8 @@ namespace SuitsupplyTestTask.WPFClient.EditProduct
         {
             ProductDto = productDto;
             Price = productDto.Price.ToString(CultureInfo.InvariantCulture);
+            DisplayName = "Edit";
         }
-
-        public override string DisplayName => "Edit";
 
         public bool CanSave
         {
@@ -76,7 +75,7 @@ namespace SuitsupplyTestTask.WPFClient.EditProduct
             }
         }
 
-        public ProductDTO ProductDto { get; }
+        public ProductDTO ProductDto { get; set; }
 
         public bool CanCancel { get; set; } = true;
 
@@ -89,9 +88,9 @@ namespace SuitsupplyTestTask.WPFClient.EditProduct
                 if (!string.IsNullOrEmpty(imagePath))
                     ProductDto.Photo = File.ReadAllBytes(ImagePath);
                 if (ProductDto.Id == 0)
-                    await WebApiService.Current.PostProduct(ProductDto);
+                    ProductDto = await WebApiService.Current.PostProduct(ProductDto);
                 else
-                    await WebApiService.Current.PutProduct(ProductDto.Id, ProductDto);
+                    ProductDto = await WebApiService.Current.PutProduct(ProductDto.Id, ProductDto);
             }
             catch (Exception e)
             {

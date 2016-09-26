@@ -7,6 +7,8 @@ using System.Web.Http.Description;
 
 using NLog;
 
+using Omu.ValueInjecter;
+
 using SuitsupplyTestTask.DAL;
 using SuitsupplyTestTask.WebAPI.Controllers.DTO;
 
@@ -23,13 +25,17 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
             this.productRepository = productRepository;
         }
 
+        public static Product Map(DAL.Model.Product product) => Mapper.Map<Product>(product);
+
+        public static DAL.Model.Product Map(Product product) => Mapper.Map<DAL.Model.Product>(product);
+
         /// <summary>
         /// Returns a list of products.
         /// </summary>
         public IQueryable<Product> GetProducts()
         {
             logger.Info("Get products called");
-            return productRepository.GetAll().Select(Product.Map).AsQueryable(); //TODO IQUERABLE
+            return productRepository.GetAll().Select(Map).AsQueryable(); //TODO IQUERABLE
         }
 
         /// <summary>
@@ -68,14 +74,16 @@ namespace SuitsupplyTestTask.WebAPI.Controllers
             }
             try
             {
-                await productRepository.Update(Product.Map(product));
+                var entity = Product.Map(product);
+                await productRepository.Update(entity);
+                return Ok(Product.Map(entity));
+
             }
             catch (EntityNotFoundException)
             {
                 return NotFound();
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/Products

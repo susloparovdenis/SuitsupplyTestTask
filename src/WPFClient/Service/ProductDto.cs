@@ -12,7 +12,7 @@ namespace SuitsupplyTestTask.WPFClient.Service
 
         public decimal Price { get; set; }
 
-        public DateTime LastUpdated { get; set; }
+        public DateTime LastUpdated { get; set; } = DateTime.UtcNow;
 
         public ProductDTO Clone()
         {
